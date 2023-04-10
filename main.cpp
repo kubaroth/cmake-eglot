@@ -13,11 +13,15 @@
 #include "nlohmann/json.hpp"
 #include "absl/strings/str_join.h"
 #include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h"
 
 int main(){
 
 // SPDlog    
 spdlog::info("Welcome to spdlog!");
+
+std::vector<int> vv{1,2,3,4};
+spdlog::info("vv: {0}", fmt::join(vv, ", "));
 
 // JSON
 using json = nlohmann::json;
