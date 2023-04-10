@@ -8,13 +8,15 @@ FetchContent_MakeAvailable(abseil)
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz)
 FetchContent_MakeAvailable(json)
 
-add_executable(foo main.cpp)
+FetchContent_Declare(spdlog URL https://github.com/gabime/spdlog/archive/refs/tags/v1.11.0.tar.gz)
+FetchContent_MakeAvailable(spdlog)
 
-target_include_directories(foo INTERFACE /data/data/com.termux/files/home/PRJ/nlohmann_json_test/__build/_deps/json-src/include/nlohmann)
+add_executable(foo main.cpp)
 
 target_link_libraries(foo PRIVATE
   nlohmann_json::nlohmann_json
   absl::strings
+  spdlog::spdlog_header_only
   )
 
 

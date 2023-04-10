@@ -12,16 +12,20 @@
 #include <string>
 #include "nlohmann/json.hpp"
 #include "absl/strings/str_join.h"
+#include "spdlog/spdlog.h"
 
+int main(){
+
+// SPDlog    
+spdlog::info("Welcome to spdlog!");
+
+// JSON
 using json = nlohmann::json;
 
 // Parsing from file
 // std::ifstream f("example.json");
 // json data = json::parse(f);
 
-int main(){
-
-    
 json ex1 = json::parse(R"(
   {
     "pi": 3.141,
@@ -31,6 +35,7 @@ json ex1 = json::parse(R"(
 
 std::cout << ex1.dump(4) <<'\n';
 
+// Abseil
 std::vector<std::string> v = {"foo", "bar", "baz"};
 std::string s = absl::StrJoin(v, "-");
 std::cout << "Abseil StrJoin: " << s <<'\n';
