@@ -16,7 +16,7 @@ add_executable(foo main.cpp)
 target_link_libraries(foo PRIVATE
   nlohmann_json::nlohmann_json
   absl::strings
-  spdlog::spdlog_header_only
+  spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>
   )
 
 
