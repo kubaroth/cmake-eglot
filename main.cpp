@@ -15,6 +15,8 @@
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"
 
+#include "message.pb.h"  // protobuffer
+
 int main(){
 
 // SPDlog    
@@ -43,6 +45,13 @@ std::cout << ex1.dump(4) <<'\n';
 std::vector<std::string> v = {"foo", "bar", "baz"};
 std::string s = absl::StrJoin(v, "-");
 std::cout << "Abseil StrJoin: " << s <<'\n';
+
+// Protobuffer
+message::Message m;
+m.add_id(12);
+m.set_name("my name");
+std::cout << "Hello Proto! " << m.DebugString() << std::endl;
+
 std::cout << "DONE" <<'\n';
 
 }

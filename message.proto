@@ -1,0 +1,6 @@
+package message;
+
+message Message {
+    repeated int32 id = 1;
+    optional string name = 2;
+}
